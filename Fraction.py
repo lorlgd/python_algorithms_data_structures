@@ -37,6 +37,31 @@ class Fraction:
         second_num = other.num * self.den
         return first_num == second_num
 
+    def __gt__(self, other):
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num > second_num
+
+    def __ge__(self, other):
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num >= second_num
+
+    def __lt__(self, other):
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num < second_num
+
+    def __le__(self, other):
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num <= second_num
+
+    def __ne__(self, other):
+        first_num = self.num * other.den
+        second_num = other.num * self.den
+        return first_num != second_num
+
     def get_num(self):
         return self.num
 
@@ -54,6 +79,5 @@ def gcd(m, n):
 
 
 f1 = Fraction(3, 4)
-f2 = Fraction(5, 9)
-f3 = f1 / f2
-print(f3)
+f2 = Fraction(6, 8)
+print(f1==f2)
