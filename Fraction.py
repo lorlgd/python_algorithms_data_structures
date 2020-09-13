@@ -1,8 +1,15 @@
+import sys
+
+
 class Fraction:
     def __init__(self, top, bottom):
-        self.common = gcd(top, bottom)
-        self.num = top//self.common
-        self.den = bottom//self.common
+        try:
+            self.common = gcd(int(top), int(bottom))
+            self.num = int(top)//self.common
+            self.den = int(bottom)//self.common
+        except ValueError as e:
+            print(e)
+            sys.exit(1)
 
     def __str__(self):
         return str(self.num) + "/" + str(self.den)
@@ -78,6 +85,6 @@ def gcd(m, n):
     return n
 
 
-f1 = Fraction(3, 4)
-f2 = Fraction(6, 8)
-print(f1==f2)
+f1 = Fraction(2,  -5)
+f2 = Fraction(4, 8)
+print(f1-f2)
