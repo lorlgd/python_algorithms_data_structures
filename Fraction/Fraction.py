@@ -1,4 +1,3 @@
-import fractions
 import sys
 
 
@@ -18,7 +17,8 @@ class Fraction:
     def __str__(self):
         return str(self.num) + "/" + str(self.den)
 
-    def is_negative(self, number):
+    @staticmethod
+    def is_negative(number):
         if number >= 0:
             return False
         return True
