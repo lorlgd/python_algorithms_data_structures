@@ -8,7 +8,22 @@ class BinaryGate(LogicGate):
         self.pinB = None
 
     def getPinA(self):
-        return int(input("Enter Pin A input for gate " + self.getLabel() + "-->"))
+        if self.pinA is None:
+            return int(input("Enter Pin A input for gate " + self.getLabel() + "-->"))
+        else:
+            return self.pinA.getFrom().getOutput()
 
     def getPinB(self):
-        return int(input("Enter Pin B input for gate " + self.getLabel() + "-->"))
+        if self.pinB is None:
+                    return int(input("Enter Pin B input for gate " + self.getLabel() + "-->"))
+        else:
+            return self.pinB.getFrom().getOutput()
+
+    def setNextPin(self, source):
+        if self.pinA is None:
+            self.pinA = source
+        else:
+            if self.pinB is None:
+                self.pinB = source
+            else:
+                raise RuntimeError("Error: NO EMPTY PINS.")
